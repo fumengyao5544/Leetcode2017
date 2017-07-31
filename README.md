@@ -1,11 +1,6 @@
 Leetcode2017
 刷题小组，刷题代码
 
-
-Title
-Acceptance
-Difficulty
-Frequency
 283	Move Zeroes	49.7%	Easy	
 325	Maximum Size Subarray Sum Equals k 	42.2%	Medium	
 301	Remove Invalid Parentheses	35.0%	Hard	
