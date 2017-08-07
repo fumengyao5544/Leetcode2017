@@ -48,3 +48,27 @@ public class Solution {
         return result;
     }
 }
+
+
+// Version Two - Use PriorityQueue
+public int minMeetingRooms(Interval[] intervals) {
+    if (intervals == null || intervals.length == 0) {
+        return 0;
+    }
+    Arrays.sort(intervals, (a, b) -> {
+        return a.start - b.start;
+    });
+    PriorityQueue<Interval> minHeap = new PriorityQueue<>((a, b) -> {
+        return a.end - b.end;
+    });
+    minHeap.offer(intervals[0]);
+    for (int i = 1; i < intervals.length; i++) {
+        Interval cur = intervals[i];
+        if (cur.start >= minHeap.peek().end) {
+            minHeap.poll();
+        }
+        minHeap.offer(cur);
+    }
+    return minHeap.size();
+}
+
