@@ -1,3 +1,4 @@
+// 1
 public class Solution {
     public String multiply(String num1, String num2) {
         if (num1.length() == 0 || num2.length() == 0) {
@@ -47,3 +48,39 @@ public class Solution {
     }
 
 }
+
+
+
+
+
+
+
+
+
+// 2
+public String multiply(String num1, String num2) {
+        if (num1 == null || num2 == null) return null;
+        int[] result = new int[num1.length() + num2.length()];
+        for (int i = 0; i < num1.length(); i++) {
+            for (int j = 0; j < num2.length(); j++) {
+                int val1 = num1.charAt(num1.length() - 1 - i) - '0';
+                int val2 = num2.charAt(num2.length() - 1 - j) - '0';
+                result[i + j] += val1 * val2;
+            }
+        }
+        int carry = 0;
+        for (int i = 0; i < result.length; i++) {
+            int sum = result[i] + carry;
+            result[i] = sum % 10;
+            carry = sum / 10;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < result.length; i++){
+            sb.insert(0, result[i]);
+        }
+        while (sb.charAt(0) == '0' && sb.length() > 1){
+            sb.deleteCharAt(0);
+        }
+        return sb.toString();
+
+    }
