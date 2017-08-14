@@ -1,3 +1,4 @@
-Leetcode2017
-刷题小组，刷题代码
+Leetcode2017  solution
+Every Wednesday: 10 pm(EST)
+Every Sunday: 8:pm
 
