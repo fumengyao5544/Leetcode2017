@@ -6,4 +6,4 @@
 314.	Binary Tree Vertical Order Traversal 	36.4%	Medium	
 273.	Integer to English Words	22.0%	Hard	
 17.	  Letter Combinations of a Phone Number	34.3%	Medium	
-278.  First Bad Version	25.2%	Easy	
+278.  First Bad Version	25.2%	Easy
