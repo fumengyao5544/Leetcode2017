@@ -55,10 +55,10 @@ public class MergeKSortedLinkedList {
 
     class MyComparator1 implements Comparator<ListNode>{
         @Override
-    public int compare(ListNode o1,ListNode o2) {
-        return o1.val - o2.val;
+        public int compare(ListNode o1,ListNode o2) {
+            return o1.val - o2.val;
+        }
     }
-}
     public ListNode mergeKLists2(ListNode[] lists) {
     
         if (lists == null || lists.length == 0) {
