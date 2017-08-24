@@ -1,3 +1,32 @@
+// 1. 找出最短路径，变化次数最少: BFS
+
+// 需要记录得到每个词从start 最少变化了几次（距离），当变化结果为end 时结束
+// 每个词对应一个它要start 的距离，想到用 HashMap.
+// HashMap<String, Integer> distance
+// 用 queue 实现BFS：
+// • start 放入字典里
+// • start 放入queue
+// • start 放入distance map 里， （start, 0）
+// • 一个boolean 变量foundEnd 表示是否变到了end, foundEnd 初始为false
+// • 每层遍历queue 的长度， 每poll 出一个词， 从distance map 里得到这个词到start 的
+// 距离currDistance， 调用getNeighbors 生成所有下一次变化可能产生的词
+// • 对每个下一次变化可能产生的词， 看distance map 是否存在， 如果不存在把它放进
+// distance map， 距离为currDistance + 1. 如果distance map 里存在,不需进行任何操作
+// • 同时对每个下一次变化可能产生的词， 看这个词是否为end，如果不是把它放到
+// queue 中，如果是foundEnd = true, queue 遍历到这一层为止
+
+// 2. 输出最短路径上的所有单词: DFS + backtracking
+
+// 要输出最短路径上的所有单词，就要能从每一个单词找到它变化后的下一层的单词，需要对每
+// 个单词和它的下一层单词建立一一映射，想到用HashMap.
+// HashMap<String, ArrayList<String>> nodeNeighbors
+// 每个string 作为key， value 为一个list 记录所有key 一次可以产生的且在字典中的单词
+// 在上面BFS 找最短路径更新distance map 时同时更新nodeNeighbors map
+// 从start 开始找end，对每个词curr 从 nodeNeighbors Map 中找它的下一层，再分别找出下一层
+// 的单词next 和当前词curr 在 distance Map 中的距离, 如果next 比curr 的距离大一则说明next
+// 为一下层的词. 一以next 为新的起点递归调用，当next 为end 时停止
+
+
 public class Solution {
     public List<List<String>> findLadders(String start, String end, List<String> wordList) {
         HashSet<String> dict = new HashSet<String>(wordList);
